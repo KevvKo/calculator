@@ -1,37 +1,48 @@
 #include <iostream>
+#include <string>
+#include <sstream>
+
 using namespace::std;
 
 int main(){
 
+    string value;
     int num1, num2;
     char operand;
+    stringstream ss;
 
-    cout << "Enter a number:";
-    cin >> num1;
-    
-    cout << "Enter an operator:" << std::endl;
-    cin >> operand;
+    cout << "Enter Equation:";
 
-    cout << "Enter next operand:" << std::endl;
-    cin >> num2;
+    while(true){
 
-    switch(operand){
-        case '+':
-            cout << "Result: " << num1 + num2;
-            break;
+        cin >> value;
         
-        case '-':
-            cout << "Result: " << num1 - num2;
-            break;
+        if(value == "quit"){
+            return 0;
+        }
+
+        ss << value;
+        ss >> num1;
+
+        cin >> operand >> num2;
         
-        case '*':
-            cout << "Result: " << num1 * num2;
-            break;
-        
-        case '/':
-            cout << "Result: " << num1 / num2;
-            break;
+        switch(operand){
+            case '+':
+                cout << "Result: " << num1 + num2 << std::endl;
+                break;
+            
+            case '-':
+                cout << "Result: " << num1 - num2 << std::endl;
+                break;
+            
+            case '*':
+                cout << "Result: " << num1 * num2 << std::endl;
+                break;
+            
+            case '/':
+                cout << "Result: " << num1 / num2 << std::endl;
+                break;
+        }
     }
-    
     return 0;   
 }
